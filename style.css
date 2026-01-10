@@ -3,9 +3,12 @@
     padding: 20px;
     border-radius: 10px;
     display: flex;
-    justify-content: safe center; /* Centra horizontalmente */
-    align-items: center;
+    justify-content: safe center; /* Centra el grupo de enlaces horizontalmente */
+    align-items: baseline;   /* Alinea los textos por su base para que no "salten" */
+    gap: 20px;
     overflow-x: auto;
+    overflow-y: hidden;
+    
     height: 50px
 }
 
@@ -39,7 +42,29 @@
     color: aliceblue;
 }
 
+/* Solo se aplica en dispositivos con mouse (computadoras) */
+@media (hover: hover) {
+    .navbar a:hover {
+        font-weight: bolder;
+    }
+}
+
+/* Para dispositivos táctiles (móviles), usamos :active */
+/* Esto solo se ve mientras el pulgar está presionando el enlace */
+@media (hover: none) {
+    .navbar a:active {
+        font-weight: bolder;
+        opacity: 0.7; /* Feedback visual rápido al tocar */
+    }
+}
+
 body {
     font-family: 'Geom';
     font-weight: 600;
+}
+
+.current {
+    font-size: 50px !important;
+    font-weight: bolder;
+    line-height: 0;          /* Evita que el tamaño de línea empuje la caja */
 }
